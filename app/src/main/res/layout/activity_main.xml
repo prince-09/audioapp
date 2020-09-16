@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary"
+        android:id="@+id/playerCL"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Unknown"
+            android:layout_marginTop="10dp"
+            android:id="@+id/name_of_song"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_marginStart="50dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:id="@+id/playerLL"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_of_song"
+            >
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_skip_previous_black_24dp"
+                android:id="@+id/previous"
+                />
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/play_pause"
+                android:src="@drawable/ic_play_arrow_black_24dp"
+                />
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_skip_next_black_24dp"
+                android:id="@+id/skip"
+                />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekbar_controller"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#ffffff"
+            android:fitsSystemWindows="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/playerLL"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:progressTint="#ffffff"
+            android:layout_marginTop="10dp"
+            android:thumbTint="#000000" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/mainpagetabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:minHeight="?actionBarSize"
+        android:textAlignment="center"
+        app:tabIndicatorColor="#ffff0091"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3.0dip"
+        app:tabMode="scrollable"
+        app:tabPaddingEnd="10.0dip"
+        app:tabPaddingStart="10.0dip"
+        app:tabSelectedTextColor="#ffff0091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerCL"
+        app:tabTextAppearance="@style/TextAppearance.Design.Tab.Selected."
+        app:tabTextColor="#000000" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mainviewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:descendantFocusability="blocksDescendants"
+        android:translationZ="-5.0dip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainpagetabs"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
